@@ -14,7 +14,7 @@ public interface EnumValue {
 
     static <T extends Enum<T> & EnumValue> T of(Class<T> enumClazz, String value) {
         return firstConstant(enumClazz,
-                c -> Objects.equals(c.getValue(), value),
-                ()->new IllegalArgumentException("Not found enum constant. argument : " + value));
+                c -> Objects.equals(c.getValue(), value))
+                .orElseThrow(()->new IllegalArgumentException("Not found enum constant. argument : " + value));
     }
 }

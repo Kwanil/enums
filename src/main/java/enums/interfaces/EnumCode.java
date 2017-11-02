@@ -13,7 +13,7 @@ public interface EnumCode{
 
     static <T extends Enum<T> & EnumCode> T of(Class<T> enumClazz, String code) {
         return firstConstant(enumClazz,
-                c -> Objects.equals(c.getCode(), code),
-                ()->new IllegalArgumentException("Not found enum constant. argument : " + code));
+                c -> Objects.equals(c.getCode(), code))
+                .orElseThrow(()->new IllegalArgumentException("Not found enum constant. argument : " + code));
     }
 }

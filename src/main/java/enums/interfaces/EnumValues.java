@@ -13,7 +13,7 @@ public interface EnumValues {
 
     static <T extends Enum<T> & EnumValues> T of(Class<T> enumClazz, String value) {
         return firstConstant(enumClazz,
-                c -> Arrays.binarySearch(c.getValues(), value) >= 0,
-                ()->new IllegalArgumentException("Not found enum constant. argument : " + value));
+                c -> Arrays.binarySearch(c.getValues(), value) >= 0)
+                .orElseThrow(()->new IllegalArgumentException("Not found enum constant. argument : " + value));
     }
 }

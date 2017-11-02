@@ -27,13 +27,13 @@ public class EnumUtilsTest {
 
     @Test
     public void firstConstant() throws Exception {
-        Status constant = EnumUtils.firstConstant(Status.class, e -> e.getId() == 1);
+        Status constant = EnumUtils.firstConstant(Status.class, e -> e.getId() == 1).get();
         assertThat(constant, is(Status.READY));
     }
 
     @Test(expected = RuntimeException.class)
     public void firstConstant1() throws Exception {
-        Status constant = EnumUtils.firstConstant(Status.class, e -> e.getId() == 0, RuntimeException::new);
+        Status constant = EnumUtils.firstConstant(Status.class, e -> e.getId() == 0).orElseThrow(RuntimeException::new);
         assertThat(constant, is(Status.READY));
     }
 
