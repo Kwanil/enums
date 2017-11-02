@@ -12,7 +12,7 @@ public final class EnumUtils {
     private EnumUtils(){
     }
 
-    public static <E extends Enum<E>> Optional<E> firstConstant(Class<E> enumClass, Predicate<E> predicate) {
+    public static <E extends Enum<E>> Optional<E> findFirst(Class<E> enumClass, Predicate<E> predicate) {
         Objects.requireNonNull(predicate);
         E[] enumConstants = Objects.requireNonNull(enumClass).getEnumConstants();
         return Arrays.stream(enumConstants).filter(predicate).findFirst();

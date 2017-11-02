@@ -2,7 +2,7 @@ package enums.interfaces;
 
 import java.util.Arrays;
 
-import static enums.util.EnumUtils.firstConstant;
+import static enums.util.EnumUtils.findFirst;
 
 /**
  * Created by Rabin on 2017-07-11.
@@ -12,7 +12,7 @@ public interface EnumValues {
     String[] getValues();
 
     static <T extends Enum<T> & EnumValues> T of(Class<T> enumClazz, String value) {
-        return firstConstant(enumClazz,
+        return findFirst(enumClazz,
                 c -> Arrays.binarySearch(c.getValues(), value) >= 0)
                 .orElseThrow(()->new IllegalArgumentException("Not found enum constant. argument : " + value));
     }
