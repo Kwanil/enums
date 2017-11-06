@@ -8,8 +8,8 @@ import java.util.function.Predicate;
 /**
  * Created by Rabin on 2017-07-11.
  */
-public final class EnumUtils {
-    private EnumUtils(){
+public final class EnumConstants {
+    private EnumConstants(){
     }
 
     public static <E extends Enum<E>> Optional<E> findFirst(Class<E> enumClass, Predicate<E> predicate) {

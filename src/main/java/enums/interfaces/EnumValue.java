@@ -2,7 +2,7 @@ package enums.interfaces;
 
 import java.util.Objects;
 
-import static enums.util.EnumUtils.findFirst;
+import static enums.util.EnumConstants.findFirst;
 
 /**
  * Created by Rabin on 2017-07-11.
