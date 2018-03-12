@@ -34,7 +34,7 @@ Enum에서는 `Enum.valueOf`을 사용하여 이름으로 Constant를 가져오�
 ```
 @Test
 public void firstConstant() throws Exception {
-  Status status = EnumUtils.findFirst(Status.class, e -> e.getId()==1).get();
+  Status status = EnumConstants.findFirst(Status.class, e -> e.getId()==1).get();
   assertThat(status, is(Status.READY));
 }
 ```
